@@ -1,0 +1,25 @@
+{
+  "name": "back",
+  "version": "0.0.0",
+  "description": "HWeekend Winter 2019",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "gpio": "^0.2.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calgag/smart_plant_waterer.git"
+  },
+  "author": "Calvin Gagliano, Aiden Nelson, Nikita Lal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calgag/smart_plant_waterer/issues"
+  },
+  "homepage": "https://github.com/calgag/smart_plant_waterer#readme"
+}
