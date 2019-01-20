@@ -4,7 +4,8 @@
   "description": "HWeekend Winter 2019",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "python-shell": "^1.0.7"
   },
   "devDependencies": {},
   "scripts": {
