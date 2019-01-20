@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require("path");
 let {PythonShell} = require('python-shell');
 
 // Valid GPIOs for config
@@ -20,7 +21,7 @@ app.get("/open/:id", function(req, res){
 	// IF VALID, RUN PY SCRIPT
 	if(valid == true){
 		var options = {
-			scriptPath: "py_scripts/",
+			scriptPath: __dirname + "/py_scripts/",
 			pythonOptions: ['-u'],
 			args: gpios[parseInt(req.params.id)-1]
 		};
@@ -45,7 +46,7 @@ app.get("/close/:id", function(req, res){
 	}
 	if(valid == true){
 		var options = {
-			scriptPath: "py_scripts/",
+			scriptPath: __dirname + "/py_scripts/",
 			pythonOptions: ['-u'],
 			args: gpios[parseInt(req.params.id)-1]
 		};
