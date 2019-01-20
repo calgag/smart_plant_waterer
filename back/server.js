@@ -2,31 +2,31 @@ var express = require("express");
 let {PythonShell} = require('python-shell');
 
 // Valid GPIOs for config
-var gpios = ["6", "26", "13", "19"];
+var gpios = ["6", "13", "19", "26"];
 
 var app = express();
+
+
+
 
 // OPEN VALVE FUNC
 app.get("/open/:id", function(req, res){
 	console.log("Received request to open valve " + req.params.id + "...");
 	var valid = false;
 	// CHECK FOR VALID GPIO (server specified)
-	for(var i = 0; i < gpios.length; i++){
-		if(gpios[i] == req.params.id){
-			valid = true;
-			break;
-		}
+	if(parseInt(req.params.id) < 5 && parseInt(req.params.id) > 0){
+		valid = true;
 	}
 	// IF VALID, RUN PY SCRIPT
 	if(valid == true){
 		var options = {
 			scriptPath: "py_scripts/",
 			pythonOptions: ['-u'],
-			args: req.params.id
+			args: gpios[parseInt(req.params.id)-1]
 		};
 		PythonShell.run("openValve.py", options, function(err, results){
 			if(err) throw err;
-			console.log("Successfully closed valve " + req.params.id + "...");
+			console.log("Successfully opened valve " + req.params.id + "...");
 			res.send("Successful");
 		});
 	}else{
@@ -39,18 +39,15 @@ app.get("/close/:id", function(req, res){
 	console.log("Received request to close valve " + req.params.id + "...");
 	// CHECK FOR VALID GPIO (server specified)
 	var valid = false;
-	for(var i = 0; i < gpios.length; i++){
-		if(gpios[i] == req.params.id){
-			valid = true;
-			break;
-		}
-	}
 	// IF VALID, RUN PY SCRIPT
+	if(parseInt(req.params.id) < 5 && parseInt(req.params.id) > 0){
+		valid = true;
+	}
 	if(valid == true){
 		var options = {
 			scriptPath: "py_scripts/",
 			pythonOptions: ['-u'],
-			args: req.params.id
+			args: gpios[parseInt(req.params.id)-1]
 		};
 		PythonShell.run("closeValve.py", options, function(err, results){
 			if(err) throw err;
