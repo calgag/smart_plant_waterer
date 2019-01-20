@@ -4,8 +4,7 @@
   "description": "HWeekend Winter 2019",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.4",
-    "gpio": "^0.2.10"
+    "express": "^4.16.4"
   },
   "devDependencies": {},
   "scripts": {

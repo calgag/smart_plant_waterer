@@ -15,12 +15,4 @@ app.get("/", function(req, res){
 	res.send("Hello world");
 });
 
-app.get("/on", function(req, res){
-	gpio.set();
-	setTimeout(function() {
-		console.log("waiting...");
-	}, 1000);
-	gpio.set(0);
-});
-
 app.listen(8000);
