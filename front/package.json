@@ -1,0 +1,15 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "front",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "Calvin Gagliano, Aiden Nelson, Nikita Lal",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
